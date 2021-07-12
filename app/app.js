@@ -6,7 +6,7 @@ let app = {
 
         dispatchRoute: function (controllerInstance) {
             // Vérifie que le contrôleur est un contrôleur valide
-            if (!controllerInstance.hasOwnProperty('url') /*|| !controllerInstance.executeHttpRequest*/) {
+            if (!controllerInstance.hasOwnProperty('url') || !controllerInstance.executeHttpRequest) {
                 return console.warn(`Le controller ${controllerInstance.constructor.name} est invalide.`);
             }
 
@@ -18,7 +18,7 @@ let app = {
                     document.querySelector('main').innerHTML = htmlContent;
 
                     // Exécution du gestionnaire de la vue.
-                   // controllerInstance.executeHttpRequest();
+                    controllerInstance.executeHttpRequest();
                 });
         },
 

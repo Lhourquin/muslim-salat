@@ -4,4 +4,8 @@ export default class Home {
         this.name = 'Home',
         this.url = '../views/home.html'
     }
+    
+    executeHttpRequest(){
+        console.log(this.name);
+    }
 }

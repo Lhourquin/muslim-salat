@@ -5,4 +5,8 @@ export default class SalatOfTheDay {
         this.name = 'Today',
         this.url = '../views/salatOfTheDay.html'
     }
+
+    executeHttpRequest(){
+        console.log(this.name);
+    }
 }
