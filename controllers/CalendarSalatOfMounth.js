@@ -53,17 +53,6 @@ export default class CalendarSalatOfMounth {
 
           }
 
-          /*
-                document.getElementsByTagName('tr')[1].children[0].textContent = result[0].date.gregorian;
-                document.getElementsByTagName('tr')[1].children[1].textContent = result[0].salat.fajr;
-                document.getElementsByTagName('tr')[1].children[2].textContent = result[0].salat.shourouk;
-                document.getElementsByTagName('tr')[1].children[3].textContent = result[0].salat.dhor;
-                document.getElementsByTagName('tr')[1].children[4].textContent = result[0].salat.asr;
-                document.getElementsByTagName('tr')[1].children[5].textContent = result[0].salat.maghreb;
-                document.getElementsByTagName('tr')[1].children[6].textContent = result[0].salat.icha;
-                document.getElementsByTagName('tr')[1].children[7].textContent = result[0].salat.midnight;
-
-          */
              }   
             //console.log(result[0].date.gregorian)
            
