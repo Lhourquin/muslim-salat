@@ -16,15 +16,28 @@ export default class SalatOfTheDay {
 
           
 
-            this.renderCalendarOfMonth();
+            this.renderSalatOfTheDay();
         });
     }
 
-    renderCalendarOfMonth(){
+    renderSalatOfTheDay(){
         let salatOftheDaySearch = new SalatOfTheDaySearch();
         //let eventListRow = document.getElementById('event-list-row');        
 
-        salatOftheDaySearch.searchByCity(document.getElementById('city').value);
+        salatOftheDaySearch.searchByCity(document.getElementById('city').value)
+        .then(function(obj){
+
+            document.getElementById('dateOfTheDay').textContent = obj.date;
+            document.getElementById('fajr').textContent = obj.salat.fajr;
+            document.getElementById('shourouk').textContent = obj.salat.shourouk;
+            document.getElementById('dhor').textContent = obj.salat.dhor;
+            document.getElementById('asr').textContent = obj.salat.asr;
+            document.getElementById('maghreb').textContent = obj.salat.maghreb;
+            document.getElementById('icha').textContent = obj.salat.icha;
+            document.getElementById('midnight').textContent = obj.salat.midnight;
+
+            }
+        )
 
         
     }

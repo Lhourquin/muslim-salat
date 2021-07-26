@@ -5,11 +5,30 @@ export default class SalatOfTheDaySearch {
     }
 
     searchByCity (city){
-        console.log(city);
+        //console.log(city);
         return fetch(`${this.url}&city=${city}`)
               .then(Response => Response.json())
               .then(obj => obj.data)
-              .then(dataArray => console.log(dataArray.date.gregorian.date + ' ' + dataArray.timings.Fajr))
+              .then(dataArray => dataArray =  {
+                date :  dataArray.date.gregorian.date
+                ,
+               salat : {
+                   fajr : dataArray.timings.Fajr,
+                   shourouk : dataArray.timings.Sunrise,
+                   dhor : dataArray.timings.Dhuhr,
+                   asr : dataArray.timings.Asr,
+                   maghreb : dataArray.timings.Maghrib,
+                   icha : dataArray.timings.Isha,
+                   midnight : dataArray.timings.Midnight
+               }
+              }
+                   
+                   
+                  
+               
+
+                 
+              )
               /*.then(dataArray => dataArray.map( data => {
                 return {
                   date : {
