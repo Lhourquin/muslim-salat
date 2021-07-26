@@ -54,7 +54,6 @@ export default class CalendarSalatOfMounth {
           }
 
              }   
-            //console.log(result[0].date.gregorian)
            
             );
 
