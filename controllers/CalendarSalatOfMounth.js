@@ -41,13 +41,13 @@ export default class CalendarSalatOfMounth {
             let td = cloneTemplate.querySelectorAll('td');
 
             td[0].textContent = item.date.gregorian;
-            td[1].textContent = item.salat.fajr;
-            td[2].textContent = item.salat.shourouk;
-            td[3].textContent = item.salat.dhor;
-            td[4].textContent = item.salat.asr;
-            td[5].textContent = item.salat.maghreb;
-            td[6].textContent = item.salat.icha;
-            td[7].textContent = item.salat.midnight;
+            td[1].textContent = item.salat.fajr.slice(0,5);
+            td[2].textContent = item.salat.shourouk.slice(0,5);
+            td[3].textContent = item.salat.dhor.slice(0,5);
+            td[4].textContent = item.salat.asr.slice(0,5);
+            td[5].textContent = item.salat.maghreb.slice(0,5);
+            td[6].textContent = item.salat.icha.slice(0,5);
+            td[7].textContent = item.salat.midnight.slice(0,5);
 
             eventListRow.appendChild(cloneTemplate);
 
