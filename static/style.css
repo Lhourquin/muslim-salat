@@ -18,11 +18,20 @@ a{
 }
 #salat-of-month{
     display: inline-block;
-    border: honeydew;
 }
 #salat-of-month,thead>tr>td{
     padding: 25px 25px 3px 25px;
 }
 #salat-of-month,tbody>tr>td{
    padding: 2px;
+}
+#salat-of-the-day{
+    display: inline-block;
+}
+#salat-of-the-day, tr{
+    padding: 12px;
+    color:rgb(54, 19, 26);
+}
+#dateOfTheDay, #fajr, #shourouk, #dhor, #asr, #maghreb, #icha, #midnight{
+    color: rgb(247, 0, 255);;
 }
