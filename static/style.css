@@ -28,9 +28,8 @@ a{
 #salat-of-the-day{
     display: inline-block;
 }
-#salat-of-the-day, tr{
+#salat-of-the-day{
     padding: 12px;
-    color:rgb(54, 19, 26);
 }
 #dateOfTheDay, #fajr, #shourouk, #dhor, #asr, #maghreb, #icha, #midnight{
     color: rgb(247, 0, 255);;
