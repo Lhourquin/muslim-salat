@@ -1,5 +1,4 @@
 import CalendarSearch from '../models/CalendarSearch.js';
-
 export default class CalendarSalatOfMounth {
 
     constructor(){
@@ -12,8 +11,6 @@ export default class CalendarSalatOfMounth {
         document.getElementById('searchByCity').addEventListener('click', (event)=> {
 
             event.preventDefault();
-
-          
 
             this.renderCalendarOfMonth();
         });
