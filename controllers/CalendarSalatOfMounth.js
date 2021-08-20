@@ -38,7 +38,9 @@ export default class CalendarSalatOfMounth {
             let lon = crds.longitude;
             
             console.log(`Dans la fonction getCoords la latitude ${lat} et la longitude ${lon}`);
-            console.log(getPosition.getPosition(lon, lat));
+            getPosition.getPosition(lon, lat)
+            .then(result => document.getElementById('city').value = result)
+                //result => document.getElementById('city').innerText = result
         };
 
         //console.log(`apres la fonction getCoords ? => la latitude ${lat} et la lognitude `);
@@ -53,6 +55,7 @@ export default class CalendarSalatOfMounth {
         let calendarSearch = new CalendarSearch();
         let template = document.getElementById('DayAndHourRow');
         let eventListRow = document.getElementById('event-list-row');
+        //document.getElementById('nameOfCity').innerText = document.getElementById('city').value;
 
         let date = new Date();
         let month = date.getMonth() + 1;
@@ -60,7 +63,7 @@ export default class CalendarSalatOfMounth {
 
         calendarSearch.searchByCity(month, year, document.getElementById('city').value)
         .then(function (result){
-
+            
           eventListRow.innerHTML = '';
           for(let item of result){
 
@@ -86,6 +89,8 @@ export default class CalendarSalatOfMounth {
              }   
            
             );
+
+            document.getElementById('city').value = '';
 
         
     }
