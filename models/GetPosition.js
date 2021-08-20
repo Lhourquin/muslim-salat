@@ -8,8 +8,11 @@ export default class GetPosition {
 
         //const {latitude, longitude} = position.coords;
 
-        return fetch(`${this.url}?lon=3.1480196&lat=50.7291769`)
+        return fetch(`${this.url}?lon=3.1479955&lat=50.7292044`)
                 .then(response => response.json())
-                .then(json=> console.log(json))
+                .then(json=> json.features)
+                .then(features => features[0])
+                .then(obj => obj.properties)
+                .then(properties => console.log(properties.city))
     }
 }

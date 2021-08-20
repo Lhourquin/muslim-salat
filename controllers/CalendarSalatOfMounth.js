@@ -21,6 +21,17 @@ export default class CalendarSalatOfMounth {
     getThePosition(){
 
         let getPosition = new GetPosition();
+        let lat = 0;
+        let lon = 0;
+
+        const getCoords = (pos) => {
+            let crds = pos.coords;
+            lat = crds.latitude;
+            lon = crds.longitude;
+        };
+
+        navigator.geolocation.getCurrentPosition(getCoords);
+        console.log(`la latitude ${lat} et la lognitude ${lon}`);
         getPosition.getPosition();
         //navigator.geolocation.getCurrentPosition(getPosition.getPosition);
     }
