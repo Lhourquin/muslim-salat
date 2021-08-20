@@ -4,15 +4,15 @@ export default class GetPosition {
         this.url = `https://api-adresse.data.gouv.fr/reverse/`;
     }
 
-    getPosition(){
+    getPosition(lon, lat){
 
         //const {latitude, longitude} = position.coords;
 
-        return fetch(`${this.url}?lon=3.1479955&lat=50.7292044`)
+        return fetch(`${this.url}?lon=${lon}&lat=${lat}`)
                 .then(response => response.json())
                 .then(json=> json.features)
                 .then(features => features[0])
                 .then(obj => obj.properties)
-                .then(properties => console.log(properties.city))
+                .then(properties => properties.city)
     }
 }

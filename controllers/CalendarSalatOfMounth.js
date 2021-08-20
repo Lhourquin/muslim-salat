@@ -13,26 +13,39 @@ export default class CalendarSalatOfMounth {
 
             event.preventDefault();
 
-            this.getThePosition();
+           // this.getThePosition();
             this.renderCalendarOfMonth();
         });
+
+        document.getElementById('searchByLocalisation').addEventListener('click', (event)=> {
+
+            event.preventDefault();
+
+            this.getThePosition();
+        })
     }
 
     getThePosition(){
 
         let getPosition = new GetPosition();
-        let lat = 0;
-        let lon = 0;
+        //let lat = 0;
+        //let lon = 0;
+        //console.log(`la latitude ${lat} et la longitude ${lon}`);
 
-        const getCoords = (pos) => {
+        function getCoords (pos) {
             let crds = pos.coords;
-            lat = crds.latitude;
-            lon = crds.longitude;
+            let lat = crds.latitude;
+            let lon = crds.longitude;
+            
+            console.log(`Dans la fonction getCoords la latitude ${lat} et la longitude ${lon}`);
+            console.log(getPosition.getPosition(lon, lat));
         };
 
+        //console.log(`apres la fonction getCoords ? => la latitude ${lat} et la lognitude `);
+        
         navigator.geolocation.getCurrentPosition(getCoords);
-        console.log(`la latitude ${lat} et la lognitude ${lon}`);
-        getPosition.getPosition();
+        //console.log(lat);
+        //getPosition.getPosition();
         //navigator.geolocation.getCurrentPosition(getPosition.getPosition);
     }
 
