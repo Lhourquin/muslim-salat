@@ -1,15 +1,15 @@
 export default class GetPosition {
 
     constructor(){
-        this.url = `https://api.opencagedata.com/geocode/v1/json?`
+        this.url = `https://api-adresse.data.gouv.fr/reverse/`;
     }
 
-    getPosition(position){
+    getPosition(){
 
-        const {latitude, longitude} = position.coords;
+        //const {latitude, longitude} = position.coords;
 
-        fetch(`${this.url}q=${latitude}+${longitude}&key=1ed6b9f1608f4aadb41c23a712c8c75a`)
-                .then(response => response.json)
-                .then(console.log);
+        return fetch(`${this.url}?lon=3.1480196&lat=50.7291769`)
+                .then(response => response.json())
+                .then(json=> console.log(json))
     }
 }

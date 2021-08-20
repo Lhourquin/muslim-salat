@@ -1,4 +1,5 @@
 import CalendarSearch from '../models/CalendarSearch.js';
+import GetPosition from '../models/GetPosition.js';
 export default class CalendarSalatOfMounth {
 
     constructor(){
@@ -12,8 +13,16 @@ export default class CalendarSalatOfMounth {
 
             event.preventDefault();
 
+            this.getThePosition();
             this.renderCalendarOfMonth();
         });
+    }
+
+    getThePosition(){
+
+        let getPosition = new GetPosition();
+        getPosition.getPosition();
+        //navigator.geolocation.getCurrentPosition(getPosition.getPosition);
     }
 
     renderCalendarOfMonth(){
@@ -33,8 +42,8 @@ export default class CalendarSalatOfMounth {
 
             let cloneTemplate = document.importNode(template.content, true);
             
-            console.log(item.date.gregorian);
-            console.log(item.salat.fajr);
+           // console.log(item.date.gregorian);
+           // console.log(item.salat.fajr);
             let td = cloneTemplate.querySelectorAll('td');
 
             td[0].textContent = item.date.gregorian;
