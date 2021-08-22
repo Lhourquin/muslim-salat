@@ -57,11 +57,9 @@ export default class CalendarSalatOfMounth {
         let eventListRow = document.getElementById('event-list-row');
         //document.getElementById('nameOfCity').innerText = document.getElementById('city').value;
 
-        let date = new Date();
-        let month = date.getMonth() + 1;
-        let year = date.getFullYear();
+        
 
-        calendarSearch.searchByCity(month, year, document.getElementById('city').value)
+        calendarSearch.searchByCity(document.getElementById('city').value)
         .then(function (result){
             
           eventListRow.innerHTML = '';

@@ -6,9 +6,9 @@ export default class CalendarSearch {
 
   }
 
-  searchByCity (month, year, city){
+  searchByCity (city){
 
-    return fetch(`${this.url}&month=${month}&year=${year}&city=${city}`)
+    return fetch(`${this.url}&city=${city}`)
           .then(Response => Response.json())
           .then(obj => obj.data)
           .then(dataArray => dataArray.map( data => {
