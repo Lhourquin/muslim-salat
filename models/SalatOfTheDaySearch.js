@@ -28,8 +28,8 @@ export default class SalatOfTheDaySearch {
                
 
                  
-              )
-              /*.then(dataArray => dataArray.map( data => {
+              )/*
+              .then(dataArray => dataArray.map( data => {
                 return {
                   date : {
                     gregorian : data.date.gregorian.date,
@@ -47,15 +47,15 @@ export default class SalatOfTheDaySearch {
                 
                 }
               })
-              )*/
-             // .then(console.log(dataArray));
+              )
+              .then(console.log(dataArray));
               
               //dataArray.map(data => console.log(data.date.gregorian.date))
     
     
             
         
-        
+        */
             
       }
 

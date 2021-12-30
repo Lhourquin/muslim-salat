@@ -1,4 +1,5 @@
 import SalatOfTheDaySearch from "../models/SalatOfTheDaySearch.js";
+import GetPosition from '../models/GetPosition.js';
 
 export default class SalatOfTheDay {
 
@@ -18,6 +19,39 @@ export default class SalatOfTheDay {
 
             this.renderSalatOfTheDay();
         });
+         
+        document.getElementById('searchByLocalisation').addEventListener('click', (event)=> {
+
+            event.preventDefault();
+
+            this.getThePosition();
+        })
+    }
+
+    getThePosition(){
+
+        let getPosition = new GetPosition();
+        //let lat = 0;
+        //let lon = 0;
+        //console.log(`la latitude ${lat} et la longitude ${lon}`);
+
+        function getCoords (pos) {
+            let crds = pos.coords;
+            let lat = crds.latitude;
+            let lon = crds.longitude;
+            
+            console.log(`Dans la fonction getCoords la latitude ${lat} et la longitude ${lon}`);
+            getPosition.getPosition(lon, lat)
+            .then(result => document.getElementById('city').value = result)
+                //result => document.getElementById('city').innerText = result
+        };
+
+        //console.log(`apres la fonction getCoords ? => la latitude ${lat} et la lognitude `);
+        
+        navigator.geolocation.getCurrentPosition(getCoords);
+        //console.log(lat);
+        //getPosition.getPosition();
+        //navigator.geolocation.getCurrentPosition(getPosition.getPosition);
     }
 
     renderSalatOfTheDay(){
