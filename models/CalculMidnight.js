@@ -1,7 +1,3 @@
 export default class CalculMidnight {
-
-    calcul(fajr, maghreb){
-        
-    }
-
+  calcul(fajr, maghreb) {}
 }

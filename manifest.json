@@ -1,13 +1,12 @@
 {
-    "name" : "muslim salat",
-    "icons" : [
-        {
-            "src" : "/icons/muslim.jpg",
-            "type" : "image/jpg",
-            "sizes" : "300x241"
-
-        }
-    ],
-    "start_url" : "/?source=pwa",
-    "display" : "standalone"
+  "name": "muslim salat",
+  "icons": [
+    {
+      "src": "/icons/muslim.jpg",
+      "type": "image/jpg",
+      "sizes": "300x241"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "display": "standalone"
 }
