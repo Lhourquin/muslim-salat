@@ -81,7 +81,7 @@ export default class CalendarSalatOfMounth {
           td[7].textContent = item.salat.midnight.slice(0, 5);
 
           eventListRow.appendChild(cloneTemplate);
-
+ 
           
         }
       });
