@@ -1,5 +1,6 @@
 import CalendarSearch from "../models/CalendarSearch.js";
 import GetPosition from "../models/GetPosition.js";
+import CalculMidnight from "../models/CalculMidnight.js";
 export default class CalendarSalatOfMounth {
   constructor() {
     (this.name = "Calendar"),
@@ -53,7 +54,10 @@ export default class CalendarSalatOfMounth {
     //navigator.geolocation.getCurrentPosition(getPosition.getPosition);
   }
 
+  
+
   renderCalendarOfMonth() {
+    let calculMidnight = new CalculMidnight();
     let calendarSearch = new CalendarSearch();
     let template = document.getElementById("DayAndHourRow");
     let eventListRow = document.getElementById("event-list-row");
@@ -72,17 +76,25 @@ export default class CalendarSalatOfMounth {
           let td = cloneTemplate.querySelectorAll("td");
 
           td[0].textContent = item.date.gregorian;
-          td[1].textContent = item.salat.fajr.slice(0, 5);
+          let fajrHours = (td[1].textContent = item.salat.fajr.slice(0, 5));
           td[2].textContent = item.salat.shourouk.slice(0, 5);
           td[3].textContent = item.salat.dhor.slice(0, 5);
           td[4].textContent = item.salat.asr.slice(0, 5);
-          td[5].textContent = item.salat.maghreb.slice(0, 5);
+          let maghrebHours = td[5].textContent = item.salat.maghreb.slice(0, 5);
           td[6].textContent = item.salat.icha.slice(0, 5);
-          td[7].textContent = item.salat.midnight.slice(0, 5);
+          td[7].textContent = calculMidnight.calculMidnight(fajrHours, maghrebHours);
+          ;
 
           eventListRow.appendChild(cloneTemplate);
- 
-          
+
+          /*
+          console.log(
+            "Date du : " + dateOfTheDay + " Heure de fajr : " + fajrHours
+          );
+          */
+          //this.toArrayOfNumber(fajrHours);
+
+
         }
       });
 
