@@ -33,9 +33,6 @@ export default class CalendarSalatOfMounth {
       let lat = crds.latitude;
       let lon = crds.longitude;
 
-      console.log(
-        `Dans la fonction getCoords la latitude ${lat} et la longitude ${lon}`
-      );
       getPosition
         .getPosition(lon, lat)
         .then((result) => (document.getElementById("city").value = result));

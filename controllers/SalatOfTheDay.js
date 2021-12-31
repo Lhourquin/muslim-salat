@@ -1,5 +1,6 @@
 import SalatOfTheDaySearch from "../models/SalatOfTheDaySearch.js";
 import GetPosition from "../models/GetPosition.js";
+import CalculMidnight from "../models/CalculMidnight.js";
 
 export default class SalatOfTheDay {
   constructor() {
@@ -32,9 +33,6 @@ export default class SalatOfTheDay {
       let lat = crds.latitude;
       let lon = crds.longitude;
 
-      console.log(
-        `Dans la fonction getCoords la latitude ${lat} et la longitude ${lon}`
-      );
       getPosition
         .getPosition(lon, lat)
         .then((result) => (document.getElementById("city").value = result));
@@ -45,18 +43,21 @@ export default class SalatOfTheDay {
 
   renderSalatOfTheDay() {
     let salatOftheDaySearch = new SalatOfTheDaySearch();
-
+    let calculMidnight = new CalculMidnight();
     salatOftheDaySearch
       .searchByCity(document.getElementById("city").value)
       .then(function (obj) {
         document.getElementById("dateOfTheDay").textContent = obj.date;
-        document.getElementById("fajr").textContent = obj.salat.fajr;
+        let fajrHour = (document.getElementById("fajr").textContent =
+          obj.salat.fajr);
         document.getElementById("shourouk").textContent = obj.salat.shourouk;
         document.getElementById("dhor").textContent = obj.salat.dhor;
         document.getElementById("asr").textContent = obj.salat.asr;
-        document.getElementById("maghreb").textContent = obj.salat.maghreb;
+        let maghrebHour = (document.getElementById("maghreb").textContent =
+          obj.salat.maghreb);
         document.getElementById("icha").textContent = obj.salat.icha;
-        document.getElementById("midnight").textContent = obj.salat.midnight;
+        document.getElementById("midnight").textContent =
+          calculMidnight.calculMidnight(fajrHour, maghrebHour);
       });
   }
 }
