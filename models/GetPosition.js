@@ -4,8 +4,6 @@ export default class GetPosition {
   }
 
   getPosition(lon, lat) {
-    //const {latitude, longitude} = position.coords;
-
     return fetch(`${this.url}?lon=${lon}&lat=${lat}`)
       .then((response) => response.json())
       .then((json) => json.features)

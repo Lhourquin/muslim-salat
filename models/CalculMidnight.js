@@ -1,5 +1,4 @@
 export default class CalculMidnight {
-
   toArrayOfNumber(string) {
     let arrayOfNumber = [];
     string.split(":").map((letter) => {
@@ -35,8 +34,6 @@ export default class CalculMidnight {
     return toStringMidnightMomentObj;
   }
 
-
-
   getTheMiddleOfNight(stringOfMidnight) {
     let arrayOfString = stringOfMidnight.split("T");
     arrayOfString.shift();
@@ -46,15 +43,21 @@ export default class CalculMidnight {
     return result.join(":").toString();
   }
 
-  calculMidnight(fajrHours, MaghrebHours){
+  calculMidnight(fajrHours, MaghrebHours) {
     let fajr = this.toArrayOfNumber(fajrHours);
     let maghreb = this.toArrayOfNumber(MaghrebHours);
     let fajrHoursAndMinutes = this.toHoursAndMinutesFajr(fajr);
     let maghrebHoursAndMinutes = this.toHoursAndMinutesMaghreb(maghreb);
-    let hoursAndMinutesFajrAndMaghrebInMilliseconds = this.durationsDivideByTwoInMilliseconds(fajrHoursAndMinutes, maghrebHoursAndMinutes);
-    let durationInDateFormat = this.maghrebAddDurationInHoursAndMinutes(hoursAndMinutesFajrAndMaghrebInMilliseconds, maghrebHoursAndMinutes);
+    let hoursAndMinutesFajrAndMaghrebInMilliseconds =
+      this.durationsDivideByTwoInMilliseconds(
+        fajrHoursAndMinutes,
+        maghrebHoursAndMinutes
+      );
+    let durationInDateFormat = this.maghrebAddDurationInHoursAndMinutes(
+      hoursAndMinutesFajrAndMaghrebInMilliseconds,
+      maghrebHoursAndMinutes
+    );
     let dateInStringFormat = this.getTheMiddleOfNight(durationInDateFormat);
     return dateInStringFormat;
   }
-  
 }

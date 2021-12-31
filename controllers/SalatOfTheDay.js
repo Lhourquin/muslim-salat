@@ -26,9 +26,6 @@ export default class SalatOfTheDay {
 
   getThePosition() {
     let getPosition = new GetPosition();
-    //let lat = 0;
-    //let lon = 0;
-    //console.log(`la latitude ${lat} et la longitude ${lon}`);
 
     function getCoords(pos) {
       let crds = pos.coords;
@@ -41,20 +38,13 @@ export default class SalatOfTheDay {
       getPosition
         .getPosition(lon, lat)
         .then((result) => (document.getElementById("city").value = result));
-      //result => document.getElementById('city').innerText = result
     }
 
-    //console.log(`apres la fonction getCoords ? => la latitude ${lat} et la lognitude `);
-
     navigator.geolocation.getCurrentPosition(getCoords);
-    //console.log(lat);
-    //getPosition.getPosition();
-    //navigator.geolocation.getCurrentPosition(getPosition.getPosition);
   }
 
   renderSalatOfTheDay() {
     let salatOftheDaySearch = new SalatOfTheDaySearch();
-    //let eventListRow = document.getElementById('event-list-row');
 
     salatOftheDaySearch
       .searchByCity(document.getElementById("city").value)
